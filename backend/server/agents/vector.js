@@ -1,0 +1,3 @@
+// Búsqueda exacta por coseno para el corpus pequeño del prototipo.
+export function cosineSimilarity(a,b){if(!Array.isArray(a)||!Array.isArray(b)||a.length!==1024||b.length!==a.length) return null;let dot=0,aa=0,bb=0;for(let i=0;i<a.length;i++){if(!Number.isFinite(a[i])||!Number.isFinite(b[i]))return null;dot+=a[i]*b[i];aa+=a[i]*a[i];bb+=b[i]*b[i]}return aa&&bb?dot/Math.sqrt(aa*bb):null}
+export function rankChunks(rows,query,threshold=0.55){return rows.map(row=>{let v=row.embedding;try{if(typeof v==='string')v=JSON.parse(v)}catch{return null}const similitud=cosineSimilarity(v,query);return similitud===null?null:{...row,similitud}}).filter(row=>row&&row.similitud>=threshold).sort((a,b)=>b.similitud-a.similitud).slice(0,3)}

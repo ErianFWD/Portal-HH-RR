@@ -1,0 +1,1 @@
+export async function generateDailyReport(){throw Error('Agente analista pendiente')}
