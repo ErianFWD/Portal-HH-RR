@@ -1,0 +1,242 @@
+{
+  "nota": "Diagnóstico de recuperación con embeddings de consulta agrupados. No se usa para latencia ni aprobación de 45 preguntas. Las preguntas de calibración pertenecen al banco conocido; no prueban generalización.",
+  "resultados": [
+    {
+      "id": "7",
+      "ruta": {
+        "intencion": "politica",
+        "consulta_reformulada": "Como colaborador, para una incapacidad de 5 días: ¿quién paga esos días de incapacidad y cuánto recibo?",
+        "destinos": [
+          "politicas"
+        ]
+      },
+      "respuesta": "Para una incapacidad inicial ordinaria por enfermedad común de 5 días: los primeros 3 días corren a cargo del patrono al 50% según el criterio del MTSS; desde el cuarto día procede el subsidio ordinario de la CCSS, equivalente al 60% de la base reconocida por esa institución, sujeta a sus requisitos. La base patronal y la de la CCSS no deben suponerse idénticas. No es posible indicar el monto exacto en colones sin bases salariales y condiciones verificadas. Además, debés avisar a la jefatura y RRHH lo antes posible (plazo interno orientativo: remitir número de boleta, entidad y fechas dentro de 24 horas de contar con el comprobante, admitiendo justificación por imposibilidad), sin adjuntar diagnósticos. Si la incapacidad es sucesiva o prorrogada, el tratamiento puede variar y no se reinician automáticamente los tres días; RRHH confirma con la CCSS. Para calcular el monto, precisá la base salarial reconocida y si es inicial o prorrogada.",
+      "citas": [
+        {
+          "documento_id": "1RTDbtiAc9bYgT3hSfyls_igbD5dwT1lA",
+          "fragmento_id": 41,
+          "nombre": "POL-03.pdf",
+          "enlace": "https://drive.google.com/file/d/1RTDbtiAc9bYgT3hSfyls_igbD5dwT1lA/view?usp=drivesdk",
+          "version": "5",
+          "vigencia": "2026-11-17",
+          "seccion": "3 Ejemplo y excepciones",
+          "drive_url": "https://drive.google.com/file/d/1RTDbtiAc9bYgT3hSfyls_igbD5dwT1lA/view?usp=drivesdk",
+          "titulo": "POL-03.pdf"
+        },
+        {
+          "documento_id": "1RTDbtiAc9bYgT3hSfyls_igbD5dwT1lA",
+          "fragmento_id": 40,
+          "nombre": "POL-03.pdf",
+          "enlace": "https://drive.google.com/file/d/1RTDbtiAc9bYgT3hSfyls_igbD5dwT1lA/view?usp=drivesdk",
+          "version": "5",
+          "vigencia": "2026-11-17",
+          "seccion": "2 Enfermedad común",
+          "drive_url": "https://drive.google.com/file/d/1RTDbtiAc9bYgT3hSfyls_igbD5dwT1lA/view?usp=drivesdk",
+          "titulo": "POL-03.pdf"
+        },
+        {
+          "documento_id": "1RTDbtiAc9bYgT3hSfyls_igbD5dwT1lA",
+          "fragmento_id": 39,
+          "nombre": "POL-03.pdf",
+          "enlace": "https://drive.google.com/file/d/1RTDbtiAc9bYgT3hSfyls_igbD5dwT1lA/view?usp=drivesdk",
+          "version": "5",
+          "vigencia": "2026-11-17",
+          "seccion": "1 Comunicación",
+          "drive_url": "https://drive.google.com/file/d/1RTDbtiAc9bYgT3hSfyls_igbD5dwT1lA/view?usp=drivesdk",
+          "titulo": "POL-03.pdf"
+        }
+      ],
+      "diagnostico": {
+        "pregunta": "Me incapacitaron 5 días,  ¿quién paga esos días y  cuánto recibo?",
+        "consulta_busqueda": "Me incapacitaron 5 días,  ¿quién paga esos días y  cuánto recibo?",
+        "candidatos": [
+          {
+            "fragmento_id": 41,
+            "nombre": "POL-03.pdf",
+            "seccion": "3 Ejemplo y excepciones",
+            "similitud": 0.38193105262825994,
+            "lexical": 0.19239915555764123
+          },
+          {
+            "fragmento_id": 42,
+            "nombre": "POL-03.pdf",
+            "seccion": "4 Riesgos y protección",
+            "similitud": 0.3615381891108443,
+            "lexical": 0.19239915555764123
+          },
+          {
+            "fragmento_id": 40,
+            "nombre": "POL-03.pdf",
+            "seccion": "2 Enfermedad común",
+            "similitud": 0.3540404719455168,
+            "lexical": 0.19239915555764123
+          },
+          {
+            "fragmento_id": 50,
+            "nombre": "POL-01_Vacaciones_para_Google_Docs.docx",
+            "seccion": "2 Beneficio de la empresa ficticia",
+            "similitud": 0.33394056780296344,
+            "lexical": 0
+          },
+          {
+            "fragmento_id": 53,
+            "nombre": "POL-01_Vacaciones_para_Google_Docs.docx",
+            "seccion": "5 Feriados y consultas",
+            "similitud": 0.2386394229785674,
+            "lexical": 0.19239915555764123
+          },
+          {
+            "fragmento_id": 39,
+            "nombre": "POL-03.pdf",
+            "seccion": "1 Comunicación"
+          },
+          {
+            "fragmento_id": 49,
+            "nombre": "POL-01_Vacaciones_para_Google_Docs.docx",
+            "seccion": "1 Alcance y marco legal"
+          },
+          {
+            "fragmento_id": 51,
+            "nombre": "POL-01_Vacaciones_para_Google_Docs.docx",
+            "seccion": "3 Solicitud y aprobación"
+          },
+          {
+            "fragmento_id": 52,
+            "nombre": "POL-01_Vacaciones_para_Google_Docs.docx",
+            "seccion": "4 Acumulación"
+          }
+        ],
+        "resultado": {
+          "respuesta": "Para una incapacidad inicial ordinaria por enfermedad común de 5 días: los primeros 3 días corren a cargo del patrono al 50% según el criterio del MTSS; desde el cuarto día procede el subsidio ordinario de la CCSS, equivalente al 60% de la base reconocida por esa institución, sujeta a sus requisitos. La base patronal y la de la CCSS no deben suponerse idénticas. No es posible indicar el monto exacto en colones sin bases salariales y condiciones verificadas. Además, debés avisar a la jefatura y RRHH lo antes posible (plazo interno orientativo: remitir número de boleta, entidad y fechas dentro de 24 horas de contar con el comprobante, admitiendo justificación por imposibilidad), sin adjuntar diagnósticos. Si la incapacidad es sucesiva o prorrogada, el tratamiento puede variar y no se reinician automáticamente los tres días; RRHH confirma con la CCSS. Para calcular el monto, precisá la base salarial reconocida y si es inicial o prorrogada.",
+          "suficiente": true,
+          "motivo": "Existe regla documentada sobre tramos de pago (3 días patronal al 50%, desde el 4.º subsidio CCSS al 60%) y requisitos de comunicación; falta el dato salarial individual para el monto.",
+          "fragmentos": [
+            41,
+            40,
+            39
+          ]
+        }
+      }
+    },
+    {
+      "id": "19",
+      "ruta": {
+        "intencion": "mixta",
+        "consulta_reformulada": "¿Cuántos días de vacaciones me quedan a la fecha 2026-11-17 y puedo transferir los días sobrantes al año siguiente?",
+        "destinos": [
+          "politicas",
+          "datos"
+        ]
+      },
+      "respuesta": "No hay un plazo universal: los días pendientes no caducan automáticamente al cierre del año ni se borran del saldo, y su programación debe respetar las reglas legales de disfrute y acumulación del Código de Trabajo. No se autoriza acumulación indefinida por chat; RRHH revisa casos y programa el descanso, y superar 20 días genera una alerta administrativa, no pérdida del derecho. El traslado de días sobrantes al otro año no está regulado como tal en el fragmento: no se confirma que puedas pasarlos. El beneficio interno ficticio es de 15 días hábiles por ciclo de 50 semanas continuas, distinto del mínimo legal de dos semanas por cada 50 semanas continuas. La solicitud requiere 10 días hábiles de anticipación en el portal, con inicio y fin; la jefatura revisa cobertura y RRHH registra la aprobación, respondiendo en máximo interno de 3 días hábiles; el silencio no aprueba. Solo solicitudes aprobadas descuentan días.",
+      "citas": [
+        {
+          "documento_id": "1Q_iBJEhnd1Ytnwr_qPmFwrG_cj7zpd-J",
+          "fragmento_id": 52,
+          "nombre": "POL-01_Vacaciones_para_Google_Docs.docx",
+          "enlace": "https://docs.google.com/document/d/1Q_iBJEhnd1Ytnwr_qPmFwrG_cj7zpd-J/edit?usp=drivesdk&ouid=116718401873814647000&rtpof=true&sd=true",
+          "version": "5",
+          "vigencia": "2026-11-17",
+          "seccion": "4 Acumulación",
+          "drive_url": "https://docs.google.com/document/d/1Q_iBJEhnd1Ytnwr_qPmFwrG_cj7zpd-J/edit?usp=drivesdk&ouid=116718401873814647000&rtpof=true&sd=true",
+          "titulo": "POL-01_Vacaciones_para_Google_Docs.docx"
+        },
+        {
+          "documento_id": "1Q_iBJEhnd1Ytnwr_qPmFwrG_cj7zpd-J",
+          "fragmento_id": 50,
+          "nombre": "POL-01_Vacaciones_para_Google_Docs.docx",
+          "enlace": "https://docs.google.com/document/d/1Q_iBJEhnd1Ytnwr_qPmFwrG_cj7zpd-J/edit?usp=drivesdk&ouid=116718401873814647000&rtpof=true&sd=true",
+          "version": "5",
+          "vigencia": "2026-11-17",
+          "seccion": "2 Beneficio de la empresa ficticia",
+          "drive_url": "https://docs.google.com/document/d/1Q_iBJEhnd1Ytnwr_qPmFwrG_cj7zpd-J/edit?usp=drivesdk&ouid=116718401873814647000&rtpof=true&sd=true",
+          "titulo": "POL-01_Vacaciones_para_Google_Docs.docx"
+        },
+        {
+          "documento_id": "1Q_iBJEhnd1Ytnwr_qPmFwrG_cj7zpd-J",
+          "fragmento_id": 49,
+          "nombre": "POL-01_Vacaciones_para_Google_Docs.docx",
+          "enlace": "https://docs.google.com/document/d/1Q_iBJEhnd1Ytnwr_qPmFwrG_cj7zpd-J/edit?usp=drivesdk&ouid=116718401873814647000&rtpof=true&sd=true",
+          "version": "5",
+          "vigencia": "2026-11-17",
+          "seccion": "1 Alcance y marco legal",
+          "drive_url": "https://docs.google.com/document/d/1Q_iBJEhnd1Ytnwr_qPmFwrG_cj7zpd-J/edit?usp=drivesdk&ouid=116718401873814647000&rtpof=true&sd=true",
+          "titulo": "POL-01_Vacaciones_para_Google_Docs.docx"
+        },
+        {
+          "documento_id": "1Q_iBJEhnd1Ytnwr_qPmFwrG_cj7zpd-J",
+          "fragmento_id": 51,
+          "nombre": "POL-01_Vacaciones_para_Google_Docs.docx",
+          "enlace": "https://docs.google.com/document/d/1Q_iBJEhnd1Ytnwr_qPmFwrG_cj7zpd-J/edit?usp=drivesdk&ouid=116718401873814647000&rtpof=true&sd=true",
+          "version": "5",
+          "vigencia": "2026-11-17",
+          "seccion": "3 Solicitud y aprobación",
+          "drive_url": "https://docs.google.com/document/d/1Q_iBJEhnd1Ytnwr_qPmFwrG_cj7zpd-J/edit?usp=drivesdk&ouid=116718401873814647000&rtpof=true&sd=true",
+          "titulo": "POL-01_Vacaciones_para_Google_Docs.docx"
+        }
+      ],
+      "diagnostico": {
+        "pregunta": "¿Cuántos días me quedan y puedo pasar los que sobren al otro año?",
+        "consulta_busqueda": "vacaciones: ¿Cuántos días me quedan y puedo pasar los que sobren al otro año?",
+        "candidatos": [
+          {
+            "fragmento_id": 52,
+            "nombre": "POL-01_Vacaciones_para_Google_Docs.docx",
+            "seccion": "4 Acumulación",
+            "similitud": 0.5354852490399588,
+            "lexical": 0.13490185541152902
+          },
+          {
+            "fragmento_id": 53,
+            "nombre": "POL-01_Vacaciones_para_Google_Docs.docx",
+            "seccion": "5 Feriados y consultas",
+            "similitud": 0.4094851242090004,
+            "lexical": 0.31872349246663534
+          },
+          {
+            "fragmento_id": 50,
+            "nombre": "POL-01_Vacaciones_para_Google_Docs.docx",
+            "seccion": "2 Beneficio de la empresa ficticia",
+            "similitud": 0.3998680053265042,
+            "lexical": 0.13490185541152902
+          },
+          {
+            "fragmento_id": 32,
+            "nombre": "POL-05.pdf",
+            "seccion": "4 Calendario y privacidad",
+            "similitud": 0.38380442670408804,
+            "lexical": 0.2040445907362234
+          },
+          {
+            "fragmento_id": 49,
+            "nombre": "POL-01_Vacaciones_para_Google_Docs.docx",
+            "seccion": "1 Alcance y marco legal",
+            "similitud": 0.38580870207628637,
+            "lexical": 0.13490185541152902
+          },
+          {
+            "fragmento_id": 51,
+            "nombre": "POL-01_Vacaciones_para_Google_Docs.docx",
+            "seccion": "3 Solicitud y aprobación"
+          },
+          {
+            "fragmento_id": 31,
+            "nombre": "POL-05.pdf",
+            "seccion": "3 Deducciones y consultas"
+          }
+        ],
+        "resultado": {
+          "respuesta": "No hay un plazo universal: los días pendientes no caducan automáticamente al cierre del año ni se borran del saldo, y su programación debe respetar las reglas legales de disfrute y acumulación del Código de Trabajo. No se autoriza acumulación indefinida por chat; RRHH revisa casos y programa el descanso, y superar 20 días genera una alerta administrativa, no pérdida del derecho. El traslado de días sobrantes al otro año no está regulado como tal en el fragmento: no se confirma que puedas pasarlos. El beneficio interno ficticio es de 15 días hábiles por ciclo de 50 semanas continuas, distinto del mínimo legal de dos semanas por cada 50 semanas continuas. La solicitud requiere 10 días hábiles de anticipación en el portal, con inicio y fin; la jefatura revisa cobertura y RRHH registra la aprobación, respondiendo en máximo interno de 3 días hábiles; el silencio no aprueba. Solo solicitudes aprobadas descuentan días.",
+          "suficiente": true,
+          "motivo": "Existe regla documentada sobre acumulación y no caducidad automática, y se distingue el beneficio interno del mínimo legal; falta dato individual para el saldo y el traslado no está expresamente regulado.",
+          "fragmentos": [
+            52,
+            50,
+            49,
+            51
+          ]
+        }
+      }
+    }
+  ]
+}

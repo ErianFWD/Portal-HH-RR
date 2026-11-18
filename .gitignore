@@ -6,3 +6,4 @@ credentials*.json
 backend/credenciales/*
 !backend/credenciales/.gitkeep
 .npm-cache/
+tmp/

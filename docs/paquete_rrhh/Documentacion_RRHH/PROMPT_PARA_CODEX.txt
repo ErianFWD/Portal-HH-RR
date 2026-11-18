@@ -1,0 +1,9 @@
+Continuá el Mini Proyecto 2 utilizando este paquete de documentación y el enunciado original. Leé LEEME.md, especificacion/CONTINUAR_CON_CODEX.md, las diez políticas, los calendarios, los prompts y el banco de evaluación. Inspeccioná el código existente y las instrucciones del repositorio antes de cambiarlo.
+
+Implementá lo que falte para cumplir el enunciado, conservando lo que funcione. Las políticas incluyen reglas de una empresa ficticia en Costa Rica; no cambies silenciosamente sus cifras. Configurá como fuentes separadas RAG para políticas y SQL para datos personales. Mantener 5 agentes con herramientas y permisos distintos.
+
+Primero comprobá acceso al Google Doc de prueba, lectura de contenido y embeddings por separado. No imprimas claves, JSON privados ni variables secretas. Después integrá la carpeta con las diez políticas y el calendario en Sheets, paginación y sincronización de altas, cambios y bajas. Solicitá solo los identificadores externos que no puedan obtenerse del entorno; no los inventes. Las URLs nulas del catálogo deben completarse con los archivos reales de Drive.
+
+Implementá saldo propio, próxima evaluación, solicitudes propias y próximo pago con SQL seguro. Resolvé una pregunta mixta usando políticas y datos. Probá rechazo de datos ajenos. Generá 50 colaboradores y 3 meses de movimientos simulados coherentes con la política y el reloj de prueba. Luego completá reporte diario de las 07:00 America/Costa_Rica y dashboard RRHH.
+
+Usá evaluacion/banco_45_preguntas.csv como prueba reproducible. Las respuestas observadas, latencias y resultados están vacíos a propósito: completalos solo tras ejecutar la aplicación. No presentes mocks como integraciones reales. Conservá citas reales con sección, versión y enlace. Separá costos, evidencia y limitaciones reales de lo pendiente. No publiques ni despliegues sin que se solicite.

@@ -1,0 +1,195 @@
+[
+  {
+    "documento_id": "POL-01",
+    "titulo": "Política de vacaciones y feriados",
+    "version": "1.0",
+    "vigente_desde": "2026-11-17",
+    "estado": "activo",
+    "responsable": "RRHH",
+    "archivo_md": "POL-01.md",
+    "archivo_pdf": "POL-01.pdf",
+    "drive_file_id": "1Q_iBJEhnd1Ytnwr_qPmFwrG_cj7zpd-J",
+    "drive_url": "https://docs.google.com/document/d/1Q_iBJEhnd1Ytnwr_qPmFwrG_cj7zpd-J/edit?usp=drivesdk&ouid=116718401873814647000&rtpof=true&sd=true",
+    "fuentes": [
+      "S01",
+      "S04",
+      "S09"
+    ],
+    "aprobacion_ingesta": "demo_autorizado_id_y_version",
+    "archivo_drive": "POL-01_Vacaciones_para_Google_Docs.docx",
+    "version_drive": "5",
+    "autorizacion": "docs/resultados/autorizacion_demo.json"
+  },
+  {
+    "documento_id": "POL-02",
+    "titulo": "Política de permisos y licencias",
+    "version": "1.0",
+    "vigente_desde": "2026-11-17",
+    "estado": "activo",
+    "responsable": "RRHH",
+    "archivo_md": "POL-02.md",
+    "archivo_pdf": "POL-02.pdf",
+    "drive_file_id": "1fn1FZH6249UibkCs5Qqg70fhPu0W5aNp",
+    "drive_url": "https://drive.google.com/file/d/1fn1FZH6249UibkCs5Qqg70fhPu0W5aNp/view?usp=drivesdk",
+    "fuentes": [
+      "S02",
+      "S07"
+    ],
+    "aprobacion_ingesta": "demo_autorizado_id_y_version",
+    "archivo_drive": "POL-02.pdf",
+    "version_drive": "5",
+    "autorizacion": "docs/resultados/autorizacion_demo.json"
+  },
+  {
+    "documento_id": "POL-03",
+    "titulo": "Procedimiento de incapacidades",
+    "version": "1.0",
+    "vigente_desde": "2026-11-17",
+    "estado": "activo",
+    "responsable": "RRHH",
+    "archivo_md": "POL-03.md",
+    "archivo_pdf": "POL-03.pdf",
+    "drive_file_id": "1RTDbtiAc9bYgT3hSfyls_igbD5dwT1lA",
+    "drive_url": "https://drive.google.com/file/d/1RTDbtiAc9bYgT3hSfyls_igbD5dwT1lA/view?usp=drivesdk",
+    "fuentes": [
+      "S05",
+      "S06"
+    ],
+    "aprobacion_ingesta": "demo_autorizado_id_y_version",
+    "archivo_drive": "POL-03.pdf",
+    "version_drive": "5",
+    "autorizacion": "docs/resultados/autorizacion_demo.json"
+  },
+  {
+    "documento_id": "POL-04",
+    "titulo": "Reglamento de jornada y teletrabajo",
+    "version": "1.0",
+    "vigente_desde": "2026-11-17",
+    "estado": "activo",
+    "responsable": "RRHH",
+    "archivo_md": "POL-04.md",
+    "archivo_pdf": "POL-04.pdf",
+    "drive_file_id": "1BimST76K8T6q3huxNPru167vT0Z2ib-X",
+    "drive_url": "https://drive.google.com/file/d/1BimST76K8T6q3huxNPru167vT0Z2ib-X/view?usp=drivesdk",
+    "fuentes": [
+      "S10",
+      "S11"
+    ],
+    "aprobacion_ingesta": "demo_autorizado_id_y_version",
+    "archivo_drive": "POL-04.pdf",
+    "version_drive": "5",
+    "autorizacion": "docs/resultados/autorizacion_demo.json"
+  },
+  {
+    "documento_id": "POL-05",
+    "titulo": "Política salarial y calendario de pagos",
+    "version": "1.0",
+    "vigente_desde": "2026-11-17",
+    "estado": "activo",
+    "responsable": "RRHH",
+    "archivo_md": "POL-05.md",
+    "archivo_pdf": "POL-05.pdf",
+    "drive_file_id": "1bh2LVOjHDn3FppJvTJtRJ6farsV8Ktag",
+    "drive_url": "https://drive.google.com/file/d/1bh2LVOjHDn3FppJvTJtRJ6farsV8Ktag/view?usp=drivesdk",
+    "fuentes": [
+      "S03",
+      "S04"
+    ],
+    "aprobacion_ingesta": "demo_autorizado_id_y_version",
+    "archivo_drive": "POL-05.pdf",
+    "version_drive": "5",
+    "autorizacion": "docs/resultados/autorizacion_demo.json"
+  },
+  {
+    "documento_id": "POL-06",
+    "titulo": "Catálogo de beneficios",
+    "version": "1.0",
+    "vigente_desde": "2026-11-17",
+    "estado": "activo",
+    "responsable": "RRHH",
+    "archivo_md": "POL-06.md",
+    "archivo_pdf": "POL-06.pdf",
+    "drive_file_id": "1BSxoeoS_d2RyqUYwVRTNkQRJ8Ua2nLWO",
+    "drive_url": "https://drive.google.com/file/d/1BSxoeoS_d2RyqUYwVRTNkQRJ8Ua2nLWO/view?usp=drivesdk",
+    "fuentes": [],
+    "aprobacion_ingesta": "demo_autorizado_id_y_version",
+    "archivo_drive": "POL-06.pdf",
+    "version_drive": "5",
+    "autorizacion": "docs/resultados/autorizacion_demo.json"
+  },
+  {
+    "documento_id": "POL-07",
+    "titulo": "Manual de ingreso y salida",
+    "version": "1.0",
+    "vigente_desde": "2026-11-17",
+    "estado": "activo",
+    "responsable": "RRHH",
+    "archivo_md": "POL-07.md",
+    "archivo_pdf": "POL-07.pdf",
+    "drive_file_id": "1765LA1QtoGhrrs-Tx4pm_HN0d-i0-rrx",
+    "drive_url": "https://drive.google.com/file/d/1765LA1QtoGhrrs-Tx4pm_HN0d-i0-rrx/view?usp=drivesdk",
+    "fuentes": [
+      "S08",
+      "S09"
+    ],
+    "aprobacion_ingesta": "demo_autorizado_id_y_version",
+    "archivo_drive": "POL-07.pdf",
+    "version_drive": "5",
+    "autorizacion": "docs/resultados/autorizacion_demo.json"
+  },
+  {
+    "documento_id": "POL-08",
+    "titulo": "Política de evaluación del desempeño",
+    "version": "1.0",
+    "vigente_desde": "2026-11-17",
+    "estado": "activo",
+    "responsable": "RRHH",
+    "archivo_md": "POL-08.md",
+    "archivo_pdf": "POL-08.pdf",
+    "drive_file_id": "1ewryQFC_GlH1DVdGMS_qBvw50GS6Z4d7",
+    "drive_url": "https://drive.google.com/file/d/1ewryQFC_GlH1DVdGMS_qBvw50GS6Z4d7/view?usp=drivesdk",
+    "fuentes": [],
+    "aprobacion_ingesta": "demo_autorizado_id_y_version",
+    "archivo_drive": "POL-08.pdf",
+    "version_drive": "5",
+    "autorizacion": "docs/resultados/autorizacion_demo.json"
+  },
+  {
+    "documento_id": "POL-09",
+    "titulo": "Código de conducta y protocolo de denuncias",
+    "version": "1.0",
+    "vigente_desde": "2026-11-17",
+    "estado": "activo",
+    "responsable": "RRHH",
+    "archivo_md": "POL-09.md",
+    "archivo_pdf": "POL-09.pdf",
+    "drive_file_id": "1EFi-pemvQ28Fyze-GEQnBPktAeMgf0yW",
+    "drive_url": "https://drive.google.com/file/d/1EFi-pemvQ28Fyze-GEQnBPktAeMgf0yW/view?usp=drivesdk",
+    "fuentes": [
+      "S13"
+    ],
+    "aprobacion_ingesta": "demo_autorizado_id_y_version",
+    "archivo_drive": "POL-09.pdf",
+    "version_drive": "5",
+    "autorizacion": "docs/resultados/autorizacion_demo.json"
+  },
+  {
+    "documento_id": "POL-10",
+    "titulo": "Aviso de privacidad para colaboradores",
+    "version": "1.0",
+    "vigente_desde": "2026-11-17",
+    "estado": "activo",
+    "responsable": "RRHH",
+    "archivo_md": "POL-10.md",
+    "archivo_pdf": "POL-10.pdf",
+    "drive_file_id": "1JqXxxiDuPRuyPHNMSyar7MYGTLGLoXcS",
+    "drive_url": "https://drive.google.com/file/d/1JqXxxiDuPRuyPHNMSyar7MYGTLGLoXcS/view?usp=drivesdk",
+    "fuentes": [
+      "S12"
+    ],
+    "aprobacion_ingesta": "demo_autorizado_id_y_version",
+    "archivo_drive": "POL-10.pdf",
+    "version_drive": "5",
+    "autorizacion": "docs/resultados/autorizacion_demo.json"
+  }
+]

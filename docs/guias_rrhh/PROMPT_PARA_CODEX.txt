@@ -1,0 +1,7 @@
+Continuá el Mini Proyecto 2. Leé docs/guias_rrhh/LEEME.md y especificacion/CONTINUAR_CON_CODEX.md antes de modificar el código. Inspeccioná el repositorio y sus instrucciones. Usá las guías como apoyo y el enunciado original como requisito principal.
+
+Las diez políticas y los calendarios están en una carpeta de Google Drive que compartiré mediante su enlace o ID. Comprobá acceso con la cuenta de servicio ya configurada sin imprimir secretos. Si hoy solo existe DRIVE_FILE_ID para un documento, implementá la lectura de la carpeta completa y documentá la variable de configuración real. Listá los archivos encontrados, tipos y estado de extracción; detectá duplicados de formatos y validá conversiones a Docs/Sheets. No inventes IDs ni enlaces.
+
+Continuá con los cinco agentes separados, herramientas SQL autorizadas, consultas mixtas y citas reales. Conservá los módulos existentes que funcionen. Implementá reportes diarios a las 07:00 America/Costa_Rica y dashboard solo para RRHH, de acuerdo con la especificación. Generá 50 personas y tres meses de datos simulados, integrando el fixture de pruebas sin duplicados.
+
+Utilizá banco_45_preguntas.csv para verificar el sistema. Completá resultados solo después de ejecutar pruebas. Informá qué funciona, qué falló, qué requiere credenciales y los comandos para repetir las verificaciones. No publiques ni despliegues servicios externos sin que se solicite.

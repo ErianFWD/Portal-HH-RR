@@ -1,0 +1,159 @@
+{
+  "verificado_en": "2026-11-18T18:51:55.114Z",
+  "carpeta": {
+    "id": "1e8JS2GKz9XDC2kkY9QLIrC31We14YeQv",
+    "name": "Solo_para_Google_Drive",
+    "capabilities": {
+      "canAddChildren": false,
+      "canEdit": false
+    }
+  },
+  "documentos": [
+    {
+      "id": "1765LA1QtoGhrrs-Tx4pm_HN0d-i0-rrx",
+      "nombre": "POL-07.pdf",
+      "version": "5",
+      "version_politica": "1.0",
+      "enlace": "https://drive.google.com/file/d/1765LA1QtoGhrrs-Tx4pm_HN0d-i0-rrx/view?usp=drivesdk",
+      "vigente_desde": "2026-11-17",
+      "vigente_hasta": null,
+      "fragmentos": 5,
+      "dimension": 1024,
+      "modelo": "voyage-multilingual-2"
+    },
+    {
+      "id": "1bh2LVOjHDn3FppJvTJtRJ6farsV8Ktag",
+      "nombre": "POL-05.pdf",
+      "version": "5",
+      "version_politica": "1.0",
+      "enlace": "https://drive.google.com/file/d/1bh2LVOjHDn3FppJvTJtRJ6farsV8Ktag/view?usp=drivesdk",
+      "vigente_desde": "2026-11-17",
+      "vigente_hasta": null,
+      "fragmentos": 5,
+      "dimension": 1024,
+      "modelo": "voyage-multilingual-2"
+    },
+    {
+      "id": "1BimST76K8T6q3huxNPru167vT0Z2ib-X",
+      "nombre": "POL-04.pdf",
+      "version": "5",
+      "version_politica": "1.0",
+      "enlace": "https://drive.google.com/file/d/1BimST76K8T6q3huxNPru167vT0Z2ib-X/view?usp=drivesdk",
+      "vigente_desde": "2026-11-17",
+      "vigente_hasta": null,
+      "fragmentos": 5,
+      "dimension": 1024,
+      "modelo": "voyage-multilingual-2"
+    },
+    {
+      "id": "1BSxoeoS_d2RyqUYwVRTNkQRJ8Ua2nLWO",
+      "nombre": "POL-06.pdf",
+      "version": "5",
+      "version_politica": "1.0",
+      "enlace": "https://drive.google.com/file/d/1BSxoeoS_d2RyqUYwVRTNkQRJ8Ua2nLWO/view?usp=drivesdk",
+      "vigente_desde": "2026-11-17",
+      "vigente_hasta": null,
+      "fragmentos": 5,
+      "dimension": 1024,
+      "modelo": "voyage-multilingual-2"
+    },
+    {
+      "id": "1eD-jMQswJx1QIcpE5ZXWG4_jMvt1J6ml",
+      "nombre": "feriados_2026.csv",
+      "version": "5",
+      "version_politica": null,
+      "enlace": "https://drive.google.com/file/d/1eD-jMQswJx1QIcpE5ZXWG4_jMvt1J6ml/view?usp=drivesdk",
+      "vigente_desde": "2026-01-01",
+      "vigente_hasta": "2026-12-31",
+      "fragmentos": 1,
+      "dimension": 1024,
+      "modelo": "voyage-multilingual-2"
+    },
+    {
+      "id": "1EFi-pemvQ28Fyze-GEQnBPktAeMgf0yW",
+      "nombre": "POL-09.pdf",
+      "version": "5",
+      "version_politica": "1.0",
+      "enlace": "https://drive.google.com/file/d/1EFi-pemvQ28Fyze-GEQnBPktAeMgf0yW/view?usp=drivesdk",
+      "vigente_desde": "2026-11-17",
+      "vigente_hasta": null,
+      "fragmentos": 5,
+      "dimension": 1024,
+      "modelo": "voyage-multilingual-2"
+    },
+    {
+      "id": "1ewryQFC_GlH1DVdGMS_qBvw50GS6Z4d7",
+      "nombre": "POL-08.pdf",
+      "version": "5",
+      "version_politica": "1.0",
+      "enlace": "https://drive.google.com/file/d/1ewryQFC_GlH1DVdGMS_qBvw50GS6Z4d7/view?usp=drivesdk",
+      "vigente_desde": "2026-11-17",
+      "vigente_hasta": null,
+      "fragmentos": 5,
+      "dimension": 1024,
+      "modelo": "voyage-multilingual-2"
+    },
+    {
+      "id": "1fn1FZH6249UibkCs5Qqg70fhPu0W5aNp",
+      "nombre": "POL-02.pdf",
+      "version": "5",
+      "version_politica": "1.0",
+      "enlace": "https://drive.google.com/file/d/1fn1FZH6249UibkCs5Qqg70fhPu0W5aNp/view?usp=drivesdk",
+      "vigente_desde": "2026-11-17",
+      "vigente_hasta": null,
+      "fragmentos": 5,
+      "dimension": 1024,
+      "modelo": "voyage-multilingual-2"
+    },
+    {
+      "id": "1JqXxxiDuPRuyPHNMSyar7MYGTLGLoXcS",
+      "nombre": "POL-10.pdf",
+      "version": "5",
+      "version_politica": "1.0",
+      "enlace": "https://drive.google.com/file/d/1JqXxxiDuPRuyPHNMSyar7MYGTLGLoXcS/view?usp=drivesdk",
+      "vigente_desde": "2026-11-17",
+      "vigente_hasta": null,
+      "fragmentos": 5,
+      "dimension": 1024,
+      "modelo": "voyage-multilingual-2"
+    },
+    {
+      "id": "1Q_iBJEhnd1Ytnwr_qPmFwrG_cj7zpd-J",
+      "nombre": "POL-01_Vacaciones_para_Google_Docs.docx",
+      "version": "5",
+      "version_politica": "1.0",
+      "enlace": "https://docs.google.com/document/d/1Q_iBJEhnd1Ytnwr_qPmFwrG_cj7zpd-J/edit?usp=drivesdk&ouid=116718401873814647000&rtpof=true&sd=true",
+      "vigente_desde": "2026-11-17",
+      "vigente_hasta": null,
+      "fragmentos": 6,
+      "dimension": 1024,
+      "modelo": "voyage-multilingual-2"
+    },
+    {
+      "id": "1RTDbtiAc9bYgT3hSfyls_igbD5dwT1lA",
+      "nombre": "POL-03.pdf",
+      "version": "5",
+      "version_politica": "1.0",
+      "enlace": "https://drive.google.com/file/d/1RTDbtiAc9bYgT3hSfyls_igbD5dwT1lA/view?usp=drivesdk",
+      "vigente_desde": "2026-11-17",
+      "vigente_hasta": null,
+      "fragmentos": 5,
+      "dimension": 1024,
+      "modelo": "voyage-multilingual-2"
+    },
+    {
+      "id": "1sa9-cEfQNI_jZfBBqZk5WRD6d6Nk75sP",
+      "nombre": "pagos_2026.csv",
+      "version": "5",
+      "version_politica": null,
+      "enlace": "https://drive.google.com/file/d/1sa9-cEfQNI_jZfBBqZk5WRD6d6Nk75sP/view?usp=drivesdk",
+      "vigente_desde": "2026-01-01",
+      "vigente_hasta": "2026-12-31",
+      "fragmentos": 1,
+      "dimension": 1024,
+      "modelo": "voyage-multilingual-2"
+    }
+  ],
+  "errores": [],
+  "aprobada": true
+}

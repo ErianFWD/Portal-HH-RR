@@ -1,0 +1,65 @@
+{
+  "fecha": "2026-11-18T18:51:41.574Z",
+  "fecha_reloj": "2026-11-17",
+  "evaluacion_base": "evaluacion-2026-11-18T18-06-36-960Z",
+  "codigo_hash": "1590f6ec55d3fa6d07d7fb90f7a294769d7d2979954307bfd71b4a5e9de8d6ac",
+  "nota": "Pruebas dirigidas posteriores a la corrida completa. No sustituyen filas, latencias ni puntuación de las 45 preguntas. Los cuatro errores originales permanecen en el CSV medido.",
+  "casos": [
+    {
+      "id": 9,
+      "rol": "colaborador",
+      "respuesta": "Tu próximo pago está programado para 2026-11-30 (salario).",
+      "citas": [],
+      "latencia_ms": 1222,
+      "correcta": true
+    },
+    {
+      "id": 19,
+      "rol": "colaborador",
+      "respuesta": "Tu saldo de vacaciones es de 12.00 días.\n\nNo hay un plazo universal de caducidad: los días pendientes no caducan automáticamente al cierre del año ni se borran del saldo. Su programación debe respetar las reglas legales de disfrute y acumulación del Código de Trabajo; no se autoriza acumulación indefinida por chat, y RRHH revisa los casos y programa el descanso (superar 20 días genera una alerta administrativa, no pérdida del derecho). Para solicitar vacaciones se requiere hacerlo con 10 días hábiles de anticipación en el portal, indicando inicio y fin; la jefatura revisa cobertura y RRHH registra la aprobación, con respuesta interna máxima de 3 días hábiles, y el silencio no constituye aprobación. Solo solicitudes aprobadas descuentan días. Para determinar cuántos días te quedan y tu caso individual se requiere el dato de saldo.",
+      "citas": [
+        {
+          "documento_id": "1Q_iBJEhnd1Ytnwr_qPmFwrG_cj7zpd-J",
+          "fragmento_id": 52,
+          "nombre": "POL-01_Vacaciones_para_Google_Docs.docx",
+          "enlace": "https://docs.google.com/document/d/1Q_iBJEhnd1Ytnwr_qPmFwrG_cj7zpd-J/edit?usp=drivesdk&ouid=116718401873814647000&rtpof=true&sd=true",
+          "version": "1.0",
+          "vigencia": "2026-11-17",
+          "seccion": "4 Acumulación",
+          "drive_url": "https://docs.google.com/document/d/1Q_iBJEhnd1Ytnwr_qPmFwrG_cj7zpd-J/edit?usp=drivesdk&ouid=116718401873814647000&rtpof=true&sd=true",
+          "titulo": "POL-01_Vacaciones_para_Google_Docs.docx"
+        },
+        {
+          "documento_id": "1Q_iBJEhnd1Ytnwr_qPmFwrG_cj7zpd-J",
+          "fragmento_id": 51,
+          "nombre": "POL-01_Vacaciones_para_Google_Docs.docx",
+          "enlace": "https://docs.google.com/document/d/1Q_iBJEhnd1Ytnwr_qPmFwrG_cj7zpd-J/edit?usp=drivesdk&ouid=116718401873814647000&rtpof=true&sd=true",
+          "version": "1.0",
+          "vigencia": "2026-11-17",
+          "seccion": "3 Solicitud y aprobación",
+          "drive_url": "https://docs.google.com/document/d/1Q_iBJEhnd1Ytnwr_qPmFwrG_cj7zpd-J/edit?usp=drivesdk&ouid=116718401873814647000&rtpof=true&sd=true",
+          "titulo": "POL-01_Vacaciones_para_Google_Docs.docx"
+        }
+      ],
+      "latencia_ms": 4396,
+      "correcta": true
+    },
+    {
+      "id": 25,
+      "rol": "rrhh",
+      "respuesta": "Al 2026-11-17 hay 2 personas de vacaciones y 27 personas ausentes en total. Procedencia: SQL, corte 07:00 America/Costa_Rica.",
+      "citas": [],
+      "latencia_ms": 1023,
+      "correcta": true
+    },
+    {
+      "id": 44,
+      "rol": "colaborador",
+      "respuesta": "No creé ningún ticket. Este portal no tiene una herramienta para enviarlo o confirmar su creación; podés contactar a RRHH por sus canales internos.",
+      "citas": [],
+      "latencia_ms": 916,
+      "correcta": true
+    }
+  ],
+  "aprobada": true
+}

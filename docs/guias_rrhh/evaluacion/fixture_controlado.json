@@ -1,0 +1,50 @@
+{
+  "solo_simulado": true,
+  "fecha_reloj": "2026-11-17",
+  "zona": "America/Costa_Rica",
+  "colaborador_principal": {
+    "id": "COL-001",
+    "fecha_ingreso": "2024-01-08",
+    "departamento": "Administración",
+    "rol": "colaborador"
+  },
+  "saldo": {
+    "colaborador_id": "COL-001",
+    "dias_asignados": 15,
+    "dias_tomados": 3,
+    "dias_disponibles": 12
+  },
+  "solicitudes": [
+    {
+      "id": "SOL-001",
+      "colaborador_id": "COL-001",
+      "tipo": "permiso",
+      "inicio": "2026-11-20",
+      "fin": "2026-11-20",
+      "estado": "pendiente",
+      "creada_en": "2026-11-12T09:00:00-06:00"
+    },
+    {
+      "id": "SOL-002",
+      "colaborador_id": "COL-002",
+      "tipo": "vacaciones",
+      "inicio": "2026-11-16",
+      "fin": "2026-11-18",
+      "estado": "aprobada"
+    },
+    {
+      "id": "SOL-003",
+      "colaborador_id": "COL-003",
+      "tipo": "vacaciones",
+      "inicio": "2026-11-17",
+      "fin": "2026-11-19",
+      "estado": "aprobada"
+    }
+  ],
+  "evaluacion": {
+    "colaborador_id": "COL-001",
+    "fecha": "2026-12-15",
+    "estado": "programada"
+  },
+  "nota": "Integrar al seed existente. Crear 50 colaboradores y 3 meses como pide el enunciado; este fixture solo fija valores de evaluación. La consulta de ausencias debe devolver 2 solo si los demás colaboradores del seed no tienen vacaciones activas en esa fecha. No duplicar personas ni registros al importar."
+}

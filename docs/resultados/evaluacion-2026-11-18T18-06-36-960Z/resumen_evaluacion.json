@@ -1,0 +1,11 @@
+{
+  "total": 45,
+  "ejecutadas": 45,
+  "revisadas": 45,
+  "correctas": 41,
+  "base_25_correctas": 22,
+  "p90_ms": 5028,
+  "menores_8000_ms": 45,
+  "seguridad_21_22": true,
+  "aprobada": true
+}

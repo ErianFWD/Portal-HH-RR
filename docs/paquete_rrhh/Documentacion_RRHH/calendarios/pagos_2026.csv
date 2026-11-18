@@ -1,0 +1,26 @@
+﻿id,fecha_nominal,fecha_pago,tipo,grupo_planilla,documento,origen
+PAY-2026-01-adelanto,2026-01-15,2026-01-15,adelanto,general,POL-05,regla interna ficticia
+PAY-2026-01-cierre,2026-01-31,2026-01-30,cierre,general,POL-05,regla interna ficticia
+PAY-2026-02-adelanto,2026-02-15,2026-02-13,adelanto,general,POL-05,regla interna ficticia
+PAY-2026-02-cierre,2026-02-28,2026-02-27,cierre,general,POL-05,regla interna ficticia
+PAY-2026-03-adelanto,2026-03-15,2026-03-13,adelanto,general,POL-05,regla interna ficticia
+PAY-2026-03-cierre,2026-03-31,2026-03-31,cierre,general,POL-05,regla interna ficticia
+PAY-2026-04-adelanto,2026-04-15,2026-04-15,adelanto,general,POL-05,regla interna ficticia
+PAY-2026-04-cierre,2026-04-30,2026-04-30,cierre,general,POL-05,regla interna ficticia
+PAY-2026-05-adelanto,2026-05-15,2026-05-15,adelanto,general,POL-05,regla interna ficticia
+PAY-2026-05-cierre,2026-05-31,2026-05-29,cierre,general,POL-05,regla interna ficticia
+PAY-2026-06-adelanto,2026-06-15,2026-06-15,adelanto,general,POL-05,regla interna ficticia
+PAY-2026-06-cierre,2026-06-30,2026-06-30,cierre,general,POL-05,regla interna ficticia
+PAY-2026-07-adelanto,2026-07-15,2026-07-15,adelanto,general,POL-05,regla interna ficticia
+PAY-2026-07-cierre,2026-07-31,2026-07-31,cierre,general,POL-05,regla interna ficticia
+PAY-2026-08-adelanto,2026-08-15,2026-08-14,adelanto,general,POL-05,regla interna ficticia
+PAY-2026-08-cierre,2026-08-31,2026-08-28,cierre,general,POL-05,regla interna ficticia
+PAY-2026-09-adelanto,2026-09-15,2026-09-14,adelanto,general,POL-05,regla interna ficticia
+PAY-2026-09-cierre,2026-09-30,2026-09-30,cierre,general,POL-05,regla interna ficticia
+PAY-2026-10-adelanto,2026-10-15,2026-10-15,adelanto,general,POL-05,regla interna ficticia
+PAY-2026-10-cierre,2026-10-31,2026-10-30,cierre,general,POL-05,regla interna ficticia
+PAY-2026-11-adelanto,2026-11-15,2026-11-13,adelanto,general,POL-05,regla interna ficticia
+PAY-2026-11-cierre,2026-11-30,2026-11-30,cierre,general,POL-05,regla interna ficticia
+PAY-2026-12-adelanto,2026-12-15,2026-12-15,adelanto,general,POL-05,regla interna ficticia
+PAY-2026-12-cierre,2026-12-31,2026-12-31,cierre,general,POL-05,regla interna ficticia
+PAY-2026-AGUINALDO,2026-12-15,2026-12-15,aguinaldo,general,POL-05,regla interna ficticia

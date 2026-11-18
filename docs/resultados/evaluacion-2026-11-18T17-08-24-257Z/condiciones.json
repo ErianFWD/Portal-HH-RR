@@ -1,0 +1,30 @@
+{
+  "ejecutado_en": "2026-11-18T17:08:24.296Z",
+  "fecha_reloj": "2026-11-17",
+  "zona": "America/Costa_Rica",
+  "concurrencia": 1,
+  "intervalo_minimo_llegadas_ms": 21000,
+  "archivo_historico": "evaluacion-2026-11-18T17-08-24-257Z",
+  "modelo": "deepseek-flash",
+  "modelo_embedding": "voyage-multilingual-2",
+  "umbral": 0.4,
+  "timeout_ms": 7000,
+  "corpus_documentos": 12,
+  "corpus_hash": "ca1ab90ca8005a22cb9b0fc39c69a0653b69c1d7305f6e664d088f5a7073164a",
+  "estado": "ejecutada_revisada",
+  "nota": "Las filas requieren revisión humana de contenido, fuentes y permisos; no se aprueban por recibir HTTP 200. Intervalo declarado entre llegadas: la latencia se mide desde que se presenta cada pregunta hasta su respuesta completa; no es una prueba de ráfaga.",
+  "identidades": [
+    {
+      "usuario_id": 1,
+      "colaborador_id": 1,
+      "rol": "colaborador"
+    },
+    {
+      "usuario_id": 2,
+      "colaborador_id": 2,
+      "rol": "rrhh"
+    }
+  ],
+  "nota_identidad_rrhh": "La pregunta agregada de RRHH usa su identidad de sesión real, vinculada al colaborador 2 del seed; no se promueve al colaborador 1 mediante el texto de la pregunta.",
+  "revisor": "Codex - revisi?n asistida de respuestas completas y fuentes; no certificaci?n docente"
+}

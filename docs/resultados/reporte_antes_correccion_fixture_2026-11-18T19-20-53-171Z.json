@@ -1,0 +1,85 @@
+{
+  "fecha": "2026-11-17",
+  "datos": {
+    "chat": {
+      "temas": [],
+      "total": 0,
+      "p90_ms": null,
+      "fallidas": 0,
+      "canceladas": 0,
+      "completadas": 0,
+      "promedio_ms": null,
+      "resuelto_pct": null,
+      "resueltas_sin_escalar": 0
+    },
+    "zona": "America/Costa_Rica",
+    "fecha": "2026-11-17",
+    "personal": {
+      "inicio": 203,
+      "salidas": 0,
+      "al_corte": 250,
+      "entradas": 47,
+      "rotacion_pct": 0
+    },
+    "ausencias": {
+      "total": 27,
+      "desglose": [
+        {
+          "tipo": "vacaciones",
+          "personas": 1,
+          "incidencias": 0,
+          "departamento": "Finanzas"
+        },
+        {
+          "tipo": "vacaciones",
+          "personas": 1,
+          "incidencias": 0,
+          "departamento": "Tecnología"
+        },
+        {
+          "tipo": "incapacidad",
+          "personas": 25,
+          "incidencias": 0,
+          "departamento": "Ventas"
+        }
+      ]
+    },
+    "corte_utc": "2026-11-17 13:00:00",
+    "pendientes": {
+      "total": 51,
+      "mayores_72h": 39
+    },
+    "procedencia": {
+      "metodo": "sql-v1",
+      "reglas": [
+        "Corte a las 07:00 America/Costa_Rica; antigüedad estrictamente mayor a 72 horas.",
+        "Ausencias distintas; precedencia visual incapacidad, vacaciones, permiso.",
+        "Incapacidades: unión de días por persona en el mes hasta el corte.",
+        "Rotación: salidas / promedio de personal al inicio y al corte.",
+        "Saldo en riesgo: saldo actual consolidado; no reconstruye saldos históricos."
+      ],
+      "tablas": [
+        "colaboradores",
+        "solicitudes",
+        "incapacidades",
+        "movimientos_personal",
+        "saldos_vacaciones",
+        "consultas_chat"
+      ]
+    },
+    "incapacidades": {
+      "personas": 25,
+      "dias_calendario": 75
+    },
+    "vacaciones_riesgo": 90
+  },
+  "resumen": "Hay 27 personas ausentes al corte. Se registran 51 solicitudes pendientes, de las cuales 39 superan 72 horas. La rotación acumulada del mes es 0 % y 90 personas tienen más de 20 días de vacaciones disponibles. El chat de ayer completó 0 consultas y resolvió sin escalar sin consultas.",
+  "zona": "America/Costa_Rica",
+  "estado": "completado",
+  "generado_en": "2026-11-18T16:42:24.000Z",
+  "version_metodo": "sql-v1",
+  "error": null,
+  "resumen_metodo": "plantilla",
+  "disparador": "verificacion",
+  "motivo": "Corrección auditada de datos ficticios de origen; la instantánea previa se conserva en este archivo."
+}

@@ -1,0 +1,86 @@
+{
+  "fecha": "2026-11-18",
+  "datos": {
+    "chat": {
+      "temas": [],
+      "total": 0,
+      "p90_ms": null,
+      "fallidas": 0,
+      "canceladas": 0,
+      "completadas": 0,
+      "promedio_ms": null,
+      "resuelto_pct": null,
+      "no_resueltas_por_tema": [],
+      "resueltas_sin_escalar": 0
+    },
+    "zona": "America/Costa_Rica",
+    "fecha": "2026-11-18",
+    "personal": {
+      "inicio": 203,
+      "salidas": 0,
+      "al_corte": 250,
+      "entradas": 47,
+      "rotacion_pct": 0
+    },
+    "ausencias": {
+      "total": 27,
+      "desglose": [
+        {
+          "tipo": "vacaciones",
+          "personas": 1,
+          "incidencias": 0,
+          "departamento": "Finanzas"
+        },
+        {
+          "tipo": "vacaciones",
+          "personas": 1,
+          "incidencias": 0,
+          "departamento": "Tecnología"
+        },
+        {
+          "tipo": "incapacidad",
+          "personas": 25,
+          "incidencias": 0,
+          "departamento": "Ventas"
+        }
+      ]
+    },
+    "corte_utc": "2026-11-18 13:00:00",
+    "pendientes": {
+      "total": 51,
+      "mayores_72h": 39
+    },
+    "procedencia": {
+      "metodo": "sql-v1",
+      "reglas": [
+        "Corte a las 07:00 America/Costa_Rica; antigüedad estrictamente mayor a 72 horas.",
+        "Ausencias distintas; precedencia visual incapacidad, vacaciones, permiso.",
+        "Incapacidades: unión de días por persona en el mes hasta el corte.",
+        "Rotación: salidas / promedio de personal al inicio y al corte.",
+        "Saldo en riesgo: saldo actual consolidado; no reconstruye saldos históricos."
+      ],
+      "tablas": [
+        "colaboradores",
+        "solicitudes",
+        "incapacidades",
+        "movimientos_personal",
+        "saldos_vacaciones",
+        "consultas_chat"
+      ]
+    },
+    "incapacidades": {
+      "personas": 28,
+      "dias_calendario": 112
+    },
+    "vacaciones_riesgo": 90
+  },
+  "resumen": "Se registran 27 ausentes en el período informado. Hay 51 casos pendientes en el período informado. Se contabilizan 39 casos mayores a 72 horas. Se identifican 90 registros en vacaciones con riesgo. El porcentaje de chat resuelto no cuenta con datos suficientes, por lo que se informa sin base.",
+  "zona": "America/Costa_Rica",
+  "estado": "completado",
+  "generado_en": "2026-11-18T17:16:46.000Z",
+  "version_metodo": "sql-v1",
+  "error": null,
+  "resumen_metodo": "llm",
+  "disparador": "verificacion-plantilla-local",
+  "motivo": "Corrección auditada de datos ficticios de origen; la instantánea previa se conserva en este archivo."
+}

@@ -1,0 +1,18 @@
+{
+  "version": "coherencia-historia-v2",
+  "fecha": "2026-11-18T17:45:29.731Z",
+  "incidencias_temporales_restantes": 0,
+  "historia_vacaciones_ids": [
+    11,
+    12,
+    24,
+    25,
+    37
+  ],
+  "historia_incapacidades_ids": [
+    38,
+    50,
+    51
+  ],
+  "nota": "Solo seed ficticio. Se reasignaron hechos históricos a personal ya ingresado; se alinearon fechas administrativas y periodos de 350 días. No se recalcularon ni alteraron los saldos numéricos del fixture ni las solicitudes SOL-001 a SOL-003."
+}

@@ -1,0 +1,43 @@
+{
+  "verificado_en": "2026-11-18T19:15:59.716Z",
+  "entrada": "Vite 127.0.0.1:5173 con proxy API y sesiones reales del demo",
+  "checks": [
+    {
+      "prueba": "login_colaborador",
+      "correcta": true
+    },
+    {
+      "prueba": "login_rrhh",
+      "correcta": true
+    },
+    {
+      "prueba": "saldo_propio_SQL",
+      "correcta": true
+    },
+    {
+      "prueba": "dashboard_colaborador_403",
+      "correcta": true
+    },
+    {
+      "prueba": "dashboard_rrhh_30_dias",
+      "correcta": true
+    },
+    {
+      "prueba": "chat_real_con_SQL",
+      "correcta": true
+    },
+    {
+      "prueba": "historial_ajeno_404",
+      "correcta": true
+    },
+    {
+      "prueba": "historial_propio_persistido",
+      "correcta": true
+    },
+    {
+      "prueba": "RAG_real_con_fuentes_Drive_por_HTTP",
+      "correcta": true
+    }
+  ],
+  "aprobada": true
+}

@@ -1,0 +1,11 @@
+import {readFile,writeFile} from 'node:fs/promises';
+import {parse} from 'csv-parse/sync';
+const root=new URL('../../docs/resultados/',import.meta.url);
+const rows=parse(await readFile(new URL('banco_45_ejecutado.csv',root),'utf8'),{columns:true,bom:true});
+const yes=r=>/^s[ií]$/i.test(r.correcta),reviewed=r=>yes(r)||/^no$/i.test(r.correcta);
+const times=rows.filter(r=>r.latencia_ms!==''&&['Ejecutada_pendiente_revision','Fallida','Revisada'].includes(r.estado)).map(r=>Number(r.latencia_ms)).filter(Number.isFinite).sort((a,b)=>a-b);
+const summary={total:rows.length,ejecutadas:times.length,revisadas:rows.filter(reviewed).length,correctas:rows.filter(yes).length,base_25_correctas:rows.filter(r=>Number(r.id)<=25&&yes(r)).length,p90_ms:times.length?times[Math.ceil(.9*times.length)-1]:null,menores_8000_ms:times.filter(t=>t<8000).length,seguridad_21_22:rows.filter(r=>['21','22'].includes(r.id)).every(r=>yes(r))&&rows.filter(r=>['21','22'].includes(r.id)).length===2};
+summary.aprobada=summary.ejecutadas===45&&summary.revisadas===45&&summary.correctas>=36&&summary.base_25_correctas>=20&&summary.seguridad_21_22&&summary.p90_ms<8000&&summary.menores_8000_ms>=41;
+await writeFile(new URL('resumen_evaluacion.json',root),JSON.stringify(summary,null,2));console.log(JSON.stringify(summary,null,2));
+const metadata=JSON.parse(await readFile(new URL('condiciones.json',root),'utf8'));
+if(/^evaluacion-[\dTZ-]+$/.test(metadata.archivo_historico))await writeFile(new URL(metadata.archivo_historico+'/resumen_evaluacion.json',root),JSON.stringify(summary,null,2));

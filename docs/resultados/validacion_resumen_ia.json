@@ -1,0 +1,10 @@
+{
+  "verificado_en": "2026-11-18T18:02:39.877Z",
+  "fecha": "2026-11-18",
+  "datos_hash": "3945973bc964241afc63411170685f7e82c56ce2b1bb323bb0ce1f07bf0c7b91",
+  "datos_inmutables": true,
+  "metodo": "llm",
+  "resumen": "Se registran 27 ausentes en el periodo reportado. Hay 51 pendientes en el periodo reportado. Se contabilizan 38 casos con más de 72 horas. Se identifican 90 registros en riesgo de vacaciones. El porcentaje de chat resuelto no tiene datos suficientes, por lo que queda sin base.",
+  "error": null,
+  "autorizacion": "El usuario autorizó expresamente métricas ficticias agregadas para DeepSeek en el chat del 2026-11-18; no se enviaron nombres ni preguntas."
+}

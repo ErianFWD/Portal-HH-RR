@@ -1,0 +1,33 @@
+{
+  "ejecutado_en": "2026-11-18T18:06:36.996Z",
+  "fecha_reloj": "2026-11-17",
+  "zona": "America/Costa_Rica",
+  "concurrencia": 1,
+  "intervalo_minimo_llegadas_ms": 21000,
+  "archivo_historico": "evaluacion-2026-11-18T18-06-36-960Z",
+  "modelo": "deepseek-flash",
+  "modelo_embedding": "voyage-multilingual-2",
+  "umbral": 0.3,
+  "timeout_ms": 7000,
+  "corpus_documentos": 12,
+  "corpus_hash": "ca1ab90ca8005a22cb9b0fc39c69a0653b69c1d7305f6e664d088f5a7073164a",
+  "estado": "ejecutada_revisada",
+  "nota": "Las filas requieren revisión de contenido de contenido, fuentes y permisos; no se aprueban por recibir HTTP 200. Intervalo declarado entre llegadas: la latencia se mide desde que se presenta cada pregunta hasta su respuesta completa; no es una prueba de ráfaga.",
+  "codigo_hash": "37c3fa0f10102f99de09edb528b74e266fa8a4a4e3d0d210026d552ce2c58b30",
+  "recuperacion": "coseno + términos ponderados por frecuencia, cinco fragmentos, calendario SQL público cuando hay rango explícito; contexto de la política principal y secciones vecinas, sin encabezados de portada aislados",
+  "fixture_hash": "4ca448c2a5265ea055cec8f3645161cdad7bcd21c7402af63afcb8ace8042920",
+  "identidades": [
+    {
+      "usuario_id": 1,
+      "colaborador_id": 1,
+      "rol": "colaborador"
+    },
+    {
+      "usuario_id": 2,
+      "colaborador_id": 2,
+      "rol": "rrhh"
+    }
+  ],
+  "nota_identidad_rrhh": "La pregunta agregada de RRHH usa su identidad de sesión real, vinculada al colaborador 2 del seed; no se promueve al colaborador 1 mediante el texto de la pregunta.",
+  "revisor": "Codex - revisi?n asistida de respuestas completas y fuentes; no certificaci?n docente"
+}

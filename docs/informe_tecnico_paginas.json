@@ -1,0 +1,248 @@
+[
+  [
+    "1. Problema, objetivos y alcance",
+    [
+      [
+        "Problema atendido",
+        "El proyecto reúne consultas de recursos humanos que necesitan dos fuentes distintas: políticas generales y registros individuales. Un modelo puede explicar una regla documentada, pero no conocer por sí mismo un saldo actualizado ni decidir quién tiene permiso para consultarlo. El portal se organiza alrededor de esa separación y conserva evidencia de cada respuesta. El caso representa una empresa ficticia costarricense; todas las identidades, solicitudes, movimientos y calendarios operativos usados en las pruebas son simulados."
+      ],
+      [
+        "Objetivos verificables",
+        "El alcance funcional incluye autenticación, preguntas sobre políticas, consulta de datos propios, preguntas mixtas y negativas ante datos ajenos. Para RRHH agrega métricas SQL, reportes diarios, un resumen respaldado por cifras y un dashboard. El alcance documental incluye diez políticas y dos calendarios compartidos desde Drive. El alcance de validación distingue pruebas unitarias, integración con MySQL, proveedores simulados y evaluación real de cuarenta y cinco preguntas."
+      ],
+      [
+        "Criterios de aceptación",
+        "La guía exige al menos treinta y seis respuestas correctas de cuarenta y cinco y veinte de las veinticinco preguntas de base. Las preguntas de privacidad 21 y 22 son obligatorias y una fuga invalida el requisito de seguridad. La latencia se mide hasta completar la respuesta; el objetivo es un p90 inferior a ocho mil milisegundos en la muestra declarada. Una respuesta parcialmente correcta se considera incorrecta para la métrica binaria."
+      ],
+      [
+        "Entorno y estado",
+        "La implementación utiliza Node.js, Express, React, Vite, MySQL y Sequelize. La zona horaria del dominio es America/Costa_Rica y las pruebas reproducibles fijan el 17-11-2026. La revisión y las pruebas locales se realizaron el 18-11-2026. La aplicación escucha en localhost. No se presentan pruebas locales como evidencia de un despliegue público ni se atribuyen costos, disponibilidad contractual o mediciones de infraestructura que no se hayan obtenido."
+      ],
+      [
+        "Exclusiones del producto",
+        "No se implementan cobros, planes, múltiples empresas, planilla individual ni creación efectiva de tickets. El envío de solicitudes queda fuera de este alcance. Los contactos terminados en .example son ficticios. El sistema no promete que un correo haya sido enviado ni que un permiso haya sido aprobado por el solo contenido de una conversación."
+      ]
+    ]
+  ],
+  [
+    "2. Arquitectura y límites de confianza",
+    [
+      [
+        "Entrada y sesión",
+        "La interfaz React utiliza una API Express. La cookie de sesión contiene un valor aleatorio de treinta y dos bytes; en la base se guarda su huella SHA-256 y el vencimiento. La autenticación consulta el usuario y el colaborador vinculados, comprueba que estén activos y construye el contexto confiable. Los IDs o roles que una persona escriba en un mensaje no reemplazan ese contexto."
+      ],
+      [
+        "Despacho de herramientas",
+        "El orquestador llama a un clasificador LLM que debe producir JSON validado con Zod. Solo se admiten política, dato personal, mixta, reporte, restringida y fuera de alcance. El backend deriva destinos desde una lista fija y vuelve a verificar el rol para reportes. Si el modelo entrega una salida inválida o falla el proveedor, existen reglas de respaldo. Las denegaciones evidentes de acceso a terceros se aplican antes de invocar al modelo."
+      ],
+      [
+        "Separación de agentes",
+        "El módulo de datos accede a consultas SQL parametrizadas. El módulo de políticas utiliza embeddings y fragmentos de documentos autorizados. El analista calcula métricas y prepara un resumen desde agregados. El módulo de ingesta administra acceso a Drive y reemplazo del índice. El orquestador es el responsable de reunir la respuesta final, fuentes y auditoría. El modelo no genera ni ejecuta SQL libre."
+      ],
+      [
+        "Tratamiento de información",
+        "Los datos personales de saldos, solicitudes y citas se redactan con plantillas a partir de SQL; no se envían a un generador de texto. El clasificador recibe pregunta, rol y fecha. El generador de políticas recibe pregunta y fragmentos recuperados. El generador del resumen recibe cifras agregadas permitidas. Credenciales, hashes de contraseña y expedientes no forman parte de esos contextos."
+      ],
+      [
+        "Autorización de los proveedores",
+        "El usuario autorizó expresamente el uso del corpus ficticio con Voyage y DeepSeek. Esa autorización del demo se registra en un manifiesto limitado por ID y versión. Solo se acepta en desarrollo y no modifica permisos de Drive. En producción sigue aplicando el mecanismo formal de aprobación del documento. Un cambio remoto de versión deja de estar amparado por el manifiesto anterior."
+      ]
+    ]
+  ],
+  [
+    "3. Datos, migraciones y coherencia temporal",
+    [
+      [
+        "Persistencia y migración",
+        "Los modelos apuntan a tablas existentes de MySQL; no se ejecuta sync con alteraciones automáticas. La migración inicial crea las tablas básicas y la ampliación agrega campos y estructuras mediante comprobaciones idempotentes. La revisión aplicó las migraciones a un servidor MySQL real. Se conservaron los colaboradores y usuarios existentes en lugar de reiniciar la base."
+      ],
+      [
+        "Estructuras del dominio",
+        "El esquema almacena usuarios, sesiones, colaboradores, saldos, solicitudes, incapacidades, movimientos, pagos y evaluaciones de desempeño. El corpus utiliza documentos y fragmentos. La operación conserva conversaciones, consultas, intervenciones, reportes, ejecuciones y estado de Drive. Las consultas operativas seleccionan únicamente las columnas necesarias para la herramienta, aunque el rol RRHH tenga acceso a otras funciones del portal."
+      ],
+      [
+        "Identidad y fechas",
+        "La identidad personal se deriva de la sesión y su colaborador vinculado. Las fechas de ingreso y salida permiten reconstruir personal activo para el corte de un reporte. Las solicitudes incluyen creación y resolución para diferenciar su estado actual de su estado al corte histórico. Cuando el origen no contiene la historia necesaria, no se interpreta el texto de un modelo como un reemplazo de esos datos."
+      ],
+      [
+        "Seeds reproducibles",
+        "El seed inicial existente contiene doscientas cincuenta personas activas y una salida ficticia. El fixture complementario fija el saldo de doce días, la solicitud del viernes veinte de noviembre y la evaluación del quince de diciembre. Un seed adicional aporta solicitudes e incapacidades de septiembre, octubre y noviembre y los calendarios. Las marcas de versión evitan duplicar importaciones. No se insertan reportes históricos para aparentar ejecuciones pasadas del scheduler."
+      ],
+      [
+        "Límite de saldos históricos",
+        "El saldo consolidado actual no es una serie histórica de snapshots. Por ello, la alerta de vacaciones en riesgo se identifica como saldo actual aun en un reporte recuperado. No se presenta ese valor como un pasivo monetario ni como una reconstrucción del saldo de meses anteriores. Extender ese requisito requeriría un libro de movimientos o instantáneas auditables, con reglas de ciclos y ajustes definidas."
+      ]
+    ]
+  ],
+  [
+    "4. Ingesta y sincronización de Drive",
+    [
+      [
+        "Inventario y alcance",
+        "DRIVE_FOLDER_ID define una carpeta concreta. La sincronización verifica el objeto raíz, recorre descendientes y pagina todos los listados. La pertenencia al alcance no se infiere únicamente de changes.list: se reconcilia el inventario contra los documentos indexados. La carpeta real contiene una representación de cada política y los dos calendarios. Las guías de implementación, prompts y credenciales quedan fuera del corpus."
+      ],
+      [
+        "Cursor de cambios",
+        "Antes del barrido inicial se obtiene un startPageToken. Luego se procesan las páginas de cambios y se conserva newStartPageToken únicamente después de completar operaciones duraderas. Si un documento falla, se mantiene el token anterior para poder reintentarlo. Un token expirado provoca una reconciliación con un token nuevo capturado antes del nuevo barrido. El estado y los errores se conservan para auditoría."
+      ],
+      [
+        "Extracción y fragmentación",
+        "Se aceptan Google Docs, Sheets, PDF con texto, DOCX, Markdown, TXT y CSV. Sheets se exporta como CSV de su primera pestaña; un PDF escaneado requiere OCR adicional. Los fragmentos se organizan por encabezados, con máximo inicial de dos mil ochocientos caracteres y solapamiento de trescientos cincuenta. La evaluación permite revisar esos valores. Un error real de liberación del lector PDF fue detectado y corregido con una prueba de regresión sobre un archivo del corpus."
+      ],
+      [
+        "Publicación atómica",
+        "Los embeddings se obtienen y validan antes de reemplazar fragmentos. Las consultas usan una sola conexión transaccional y un savepoint por documento. El reemplazo elimina fragmentos antiguos solo dentro de ese ámbito; un fallo revierte la sustitución y conserva la versión anterior. La versión, autorización y acceso remotos se verifican nuevamente antes de publicar. Los embeddings se agrupan por documento y se aplican reintentos limitados a respuestas de cuota."
+      ],
+      [
+        "Bajas y fallos",
+        "Un documento eliminado, fuera de alcance o sin aprobación se retira de búsquedas futuras. Un 404 verificado de la carpeta retira ese alcance. Los fallos transitorios revierten la operación sin purgar todo el corpus. Los errores se almacenan por etapa y código. Las referencias históricas permanecen sujetas a autorización: el historial no expone la respuesta ni la fuente de un documento retirado como si siguiera vigente."
+      ]
+    ]
+  ],
+  [
+    "5. Recuperación, citas y respuesta personal",
+    [
+      [
+        "Representación vectorial",
+        "Voyage genera embeddings de mil veinticuatro dimensiones. La aplicación valida cantidad, orden e integridad numérica de los vectores y conserva el modelo utilizado. Los vectores se almacenan como JSON en MySQL. Para este corpus pequeño, Node calcula similitud coseno exacta sobre los fragmentos autorizados. La búsqueda es lineal y no se presenta como un índice vectorial preparado para grandes volúmenes."
+      ],
+      [
+        "Filtro y suficiencia",
+        "La recuperación filtra aprobación, vigencia, modelo y dimensión antes de ordenar evidencia. Combina coseno con términos ponderados y cinco fragmentos iniciales, además de contexto de la política principal y secciones vecinas. La búsqueda conserva los antecedentes originales del usuario y excluye rol y reloj añadidos por el modelo. El umbral no es una probabilidad de verdad. La versión de política se extrae del texto y se distingue de la revisión de Drive. El backend valida que las citas existan en el contexto recuperado."
+      ],
+      [
+        "Citas visibles",
+        "Cada cita conserva el ID del documento y fragmento, título, sección, versión, vigencia y enlace real de Drive. El contenido recuperado se trata como datos no confiables y el prompt indica que no puede modificar permisos ni instrucciones. Las pruebas incluyen una instrucción maliciosa citada dentro de la pregunta y cambios de rol declarados por texto. La protección final continúa en las herramientas del backend, no en la obediencia esperada del modelo."
+      ],
+      [
+        "Herramientas personales",
+        "Los datos disponibles son saldo propio, solicitudes propias, próximo pago por grupo de planilla y próxima evaluación propia. El cálculo auxiliar de días hábiles utiliza fines de semana y feriados SQL. La referencia al viernes se resuelve con fecha local inyectable. Cuando una solicitud es ambigua, la herramienta debe pedir su fecha. Los mensajes no pueden ampliar el colaborador_id utilizado en esas consultas."
+      ],
+      [
+        "Composición y fallos",
+        "Una consulta mixta combina las ramas de políticas y datos después de validarse la intención. Los fallos de políticas producen una abstención y una intervención con error; no una fuente de demostración. El resultado por pregunta se registra una sola vez y el historial pertenece al usuario autenticado. El escalamiento de una rama se conserva al combinarla con otra, de modo que un éxito parcial no convierta la pregunta completa en resuelta sin escalar."
+      ]
+    ]
+  ],
+  [
+    "6. Métricas SQL y reglas de corte",
+    [
+      [
+        "Ausencias y precedencia",
+        "Ausente es una persona activa a la fecha que tiene una incapacidad o una solicitud aprobada de vacaciones o permiso que cubra el corte. Se cuentan personas distintas. Una función de ventana selecciona incapacidad, vacaciones o permiso para el desglose visual y conserva la incidencia de registros solapados. Esa precedencia no decide por sí misma una controversia laboral."
+      ],
+      [
+        "Pendientes",
+        "El corte del reporte corresponde a las siete de la mañana de Costa Rica. Una solicitud creada antes o en el corte y resuelta después sigue pendiente para esa instantánea histórica. Las solicitudes sin resolución se incluyen si mantienen estado pendiente. La antigüedad de más de tres días se define estrictamente como más de setenta y dos horas calendario. La prueba de frontera verifica que exactamente setenta y dos horas no se cuenten como mayores."
+      ],
+      [
+        "Incapacidades y rotación",
+        "Una CTE recorre los días del mes hasta el corte y cuenta pares distintos de persona y día cubiertos por incapacidades. Así un periodo que cruza de mes solo aporta su intersección y dos boletas superpuestas no duplican días. La rotación usa cien por salidas del mes dividido entre el promedio de personal al inicio y al corte. Un denominador vacío produce null y una etiqueta sin base; se conservan entradas y salidas por separado."
+      ],
+      [
+        "Chat y latencia",
+        "El chat de ayer usa un intervalo semiabierto entre dos medianoches locales. El porcentaje de resolución divide consultas completadas resueltas y no escaladas entre completadas; fallidas y canceladas se muestran aparte. La latencia es una medición por pregunta completa, no por intervención. El p90 utiliza rango más próximo. Los temas y dudas no resueltas se agrupan mediante una taxonomía fija sin mostrar nombres ni preguntas personales."
+      ],
+      [
+        "Procedencia y límites",
+        "Cada reporte guarda su JSON de métricas, zona, corte, tablas y versión del método. Las cifras no se extraen del texto generado. La alerta de vacaciones es un conteo de saldos actuales mayores a veinte días y no una estimación de dinero. Las decisiones estadísticas se documentan como convenciones del proyecto, sin atribuirles carácter de fórmulas legales."
+      ]
+    ]
+  ],
+  [
+    "7. Resumen, scheduler y dashboard",
+    [
+      [
+        "Resumen respaldado",
+        "El analista recibe métricas agregadas y redacta entre tres y cinco frases estructuradas. La validación comprueba claves permitidas, igualdad de cifras y ausencia de números o tendencias no sustentados. Se realizan hasta dos intentos; si fallan, se guarda una plantilla identificada y un código de error. El usuario autorizó expresamente esos agregados ficticios para DeepSeek; sin esa autorización se usa plantilla local. El resumen de hoy se validó contra los hechos permitidos y se comprobó por hash que el JSON de métricas permaneciera intacto al actualizar solamente su redacción."
+      ],
+      [
+        "Idempotencia y auditoría",
+        "La fecha es clave única del reporte. La creación utiliza una transacción y bloqueo de fila, de modo que dos disparos simultáneos no generan dos versiones para el mismo corte. El segundo reutiliza la instantánea terminada. Se guarda un evento por ejecución, incluido el disparador manual o automático. Un fallo revierte la operación y deja un evento de error sin persistir un reporte parcial como completo."
+      ],
+      [
+        "Programación diaria",
+        "Con JOBS_ENABLED=true, la API comprueba cada minuto si corresponde el corte de las siete de la mañana en America/Costa_Rica. Al reiniciar recupera hasta treinta fechas posteriores al último reporte completo. Una instalación nueva genera el último corte y no inventa tres meses de reportes. El proceso debe permanecer ejecutándose para automatización diaria; la implementación no afirma que exista un servicio desplegado o un cron externo instalado."
+      ],
+      [
+        "Interfaz RRHH",
+        "El dashboard muestra indicadores de ausencias, solicitudes, vacaciones en riesgo y rotación, además de métricas del chat. Incluye dos gráficos: tendencia de ausencias de treinta días y barras por departamento. La serie histórica se deriva de SQL sobre hechos, no de reportes fabricados. La tabla de pendientes muestra columnas operativas y el historial permite descargar el reporte con datos y procedencia."
+      ],
+      [
+        "Interfaz personal y accesibilidad",
+        "El colaborador dispone de asistente, historial y sección de datos propios. El dashboard no aparece para su rol y todos sus endpoints verifican la restricción en servidor. Los gráficos incluyen títulos y acceso a sus valores, y las tablas admiten desplazamiento horizontal en pantallas pequeñas. La compilación se verificó; no se presenta como una revisión visual en navegador, ya que esta sesión no expone uno controlable."
+      ]
+    ]
+  ],
+  [
+    "8. Pruebas locales y seguridad",
+    [
+      [
+        "Pruebas unitarias",
+        "Pasaron 28 pruebas unitarias: clasificación, identidad, validación de DeepSeek, ranking, cifras de resumen, regeneración, reloj, destinos permitidos, rechazo de cambio de rol, fragmentación, días hábiles, autorización por versión y extracción PDF. Se verificaron agrupación, orden y reintento de embeddings. Se añadieron pruebas contra la falsa clasificación fuera de alcance del pago propio, el rechazo indebido de agregados RRHH y una abstención personal contradictoria en preguntas mixtas. Los dobles de proveedor no se presentan como respuestas reales de IA."
+      ],
+      [
+        "Base efímera independiente",
+        "La integración crea una base portalrrhh_test con sufijo del proceso, valida ese nombre y la elimina al terminar. No vacía la base del portal. Ejecuta migraciones, prepara casos controlados y realiza consultas SQL y HTTP reales. El usuario de MySQL de esta prueba necesita permisos para crear y eliminar esa base efímera; el mecanismo no concede esos permisos a usuarios del portal."
+      ],
+      [
+        "Límites temporales y métricas",
+        "Los casos incluyen solicitudes a exactamente setenta y dos horas y un segundo de antigüedad adicional, resolución posterior al corte, incapacidades superpuestas y cruce de mes, rotación sin base, consultas alrededor de medianoche y latencias con un p90 conocido. Esas pruebas verifican reglas del resultado, no solo que una función replique sus instrucciones internas."
+      ],
+      [
+        "Permisos y adversarios",
+        "La integración exige 403 en los endpoints de reportes, dashboard y sincronización para un colaborador, y 404 en conversaciones ajenas. Verifica que los parámetros de identidad del cuerpo o la URL no amplíen los datos propios, que se nieguen saldo de compañero y salario del gerente, y que una cuenta inactiva deje de autenticar una sesión válida. El texto soy administrador no habilita herramientas masivas."
+      ],
+      [
+        "Fallos de infraestructura simulados",
+        "El Drive simulado pagina archivos y prueba creación, cambio, baja y fallo de embeddings. Se conserva el índice y el cursor cuando una versión nueva no pudo calcularse. Un fallo transitorio no purga documentos. La idempotencia del reporte se verifica con dos promesas concurrentes y dos eventos auditados. El ensayo real de Drive complementa estas pruebas, sin sustituirlas ni confundir su alcance."
+      ]
+    ]
+  ],
+  [
+    "9. Evaluación real y condiciones de medición",
+    [
+      [
+        "Muestra y control",
+        "Se conservan los identificadores de las cuarenta y cinco preguntas del banco. El colaborador principal usa su identidad real del seed y la consulta agregada usa el usuario real RRHH; no se simula un ascenso mediante el cuerpo de una petición. El reloj de los datos se fija al 17-11-2026. El corpus conserva IDs, versiones, huellas de contenido y enlaces reales para revisar cada cita."
+      ],
+      [
+        "Condiciones de llegada",
+        "La evaluación usa concurrencia uno y un intervalo mínimo declarado de veintiún segundos entre llegadas debido a la cuota observada de Voyage. El tiempo de cada pregunta empieza cuando se presenta y termina con la respuesta completa. La separación entre llegadas forma parte de las condiciones de carga y no se presenta como una prueba de ráfaga. No se excluyen fallos, cancelaciones ni respuestas lentas para mejorar el indicador."
+      ],
+      [
+        "Criterio de revisión",
+        "Las filas se revisan contra respuesta esperada, identidad autorizada y evidencia realmente citada. Recibir una respuesta o un estado exitoso no equivale a ser correcto. Una cifra debe proceder de SQL y una afirmación de política debe tener la fuente adecuada; las abstenciones esperadas no requieren citas inventadas. Una respuesta parcialmente correcta se marca incorrecta para el conteo binario y se explica en la revisión."
+      ],
+      [
+        "Reproducibilidad y alcance",
+        "El código medido y los errores 9, 19, 25 y 38 quedan archivados con su huella, junto a la corrida inicial de 26/45 y una parcial interrumpida. La calibración agrupada no mide latencia de las 45 preguntas. Después de la corrida completa se corrigieron tres controles y una plantilla; las pruebas dirigidas 9, 19, 25 y 44 pasaron 4/4. No sustituyen filas ni convierten la muestra en 45/45. Se documenta el error de trasladar una condición de capacitación al beneficio de cumpleaños. La revisión asistida no certifica generalización a preguntas nuevas ni aprobación docente."
+      ]
+    ]
+  ],
+  [
+    "10. Operación, límites y trabajo posterior",
+    [
+      [
+        "Puesta en marcha",
+        "Configurar backend/.env desde el ejemplo, crear la base MySQL y aplicar npm run migrate. En una base nueva ejecutar seed; para el caso ficticio existente aplicar los seeds idempotentes de fixture e historia. npm run dev inicia API y frontend. El acceso a Drive usa una cuenta de servicio y permisos de lectura. Las claves y archivos JSON están excluidos de Git; los informes no reproducen valores secretos."
+      ],
+      [
+        "Validaciones disponibles",
+        "npm test ejecuta la suite unitaria; npm run test:integration verifica la base aislada y los endpoints; npm run build compila React. npm run ingest sincroniza el corpus autorizado. npm run evaluate con el intervalo declarado ejecuta la muestra real y npm run evaluate:summary resume las filas revisadas. El contenido, latencias y decisiones deben conservarse para auditoría académica."
+      ],
+      [
+        "Limitaciones explícitas",
+        "La búsqueda es lineal y los vectores residen en JSON. No hay OCR ni recorrido de todas las pestañas de una hoja. El limitador de intentos y la guarda de concurrencia de chat viven en memoria del proceso. La recuperación automática de reportes está limitada a treinta fechas; los saldos históricos no se reconstruyen. La retención automática destructiva no está activada. No se certifican pruebas de carga de producción ni una revisión visual del navegador."
+      ],
+      [
+        "Prioridades posteriores",
+        "Para varias instancias se necesitan controles distribuidos de tasa y trabajos, observabilidad operativa y una estrategia de recuperación más amplia. Un uso con datos reales requiere revisar contratos de proveedores, retención, finalidad, acceso a fuentes y procedimientos de RRHH. La evaluación debe ampliarse con preguntas nuevas y casos temporales y de seguridad que no formen parte del banco utilizado para ajustar la recuperación."
+      ],
+      [
+        "Referencias técnicas",
+        "Las decisiones de sincronización se contrastaron con la documentación oficial de cambios, descarga y formatos exportables de Google Drive. El manejo de cuota y agrupación utiliza la documentación de embeddings y rate limits de Voyage. La evidencia del caso, fuentes oficiales y políticas se conserva en docs/guias_rrhh y docs/paquete_rrhh. El detalle de archivos, pruebas y límites está disponible en docs/IMPLEMENTACION.md y SEGUIMIENTO.md. Referencias: https://developers.google.com/workspace/drive/api/guides/manage-changes ; https://docs.voyageai.com/docs/embeddings ; https://docs.voyageai.com/docs/rate-limits ; https://api-docs.deepseek.com/api/create-chat-completion/ ."
+      ]
+    ]
+  ]
+]
