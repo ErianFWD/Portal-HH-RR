@@ -75,6 +75,46 @@ La recuperación combina coseno con términos del texto, cinco fragmentos inicia
 
 El backend determina identidad y permisos desde la sesión; ignora identidades del cuerpo. Los colaboradores reciben 403 en endpoints RRHH y 404 para conversaciones ajenas. Usuarios o colaboradores inactivos no pueden mantener una sesión. El login limita intentos por IP y el chat permite una petición concurrente por usuario en el proceso.
 
-No incluye envío de solicitudes, tickets, planilla individual, OCR, despliegue público ni retención automática destructiva. El proceso único local y el limitador de memoria requieren adaptación antes de escalar a varias instancias.
+No incluye tickets, planilla individual, OCR, despliegue público ni retención automática destructiva. El proceso único local y el limitador de memoria requieren adaptación antes de escalar a varias instancias.
 
 Referencias de implementación: [Drive changes](https://developers.google.com/workspace/drive/api/guides/manage-changes), [exportación](https://developers.google.com/workspace/drive/api/guides/manage-downloads) y [formatos de Workspace](https://developers.google.com/workspace/drive/api/guides/ref-export-formats).
+
+## Solicitudes de vacaciones y asistencia
+
+Ejecutar `npm run migrate` antes de iniciar la versión actual. La migración **003_workflows.js**, aditiva e idempotente, extiende `solicitudes` y crea `movimientos_vacaciones`, `solicitudes_auditoria`, `asistencia`, `asistencia_correcciones`, `marcas_idempotencia`, `horarios` y `calendarios_cobertura`. Agrega claves foráneas e índices, incluida una clave generada única que impide dos jornadas abiertas por colaborador. No utiliza `sync`, no elimina datos y no vuelve a descontar vacaciones históricas aprobadas. Ya fue aplicada al demo local el 18-11-2026.
+
+**Colaborador:** entrar a **Mis solicitudes**, seleccionar fechas y calcular los días hábiles antes de confirmar. El servidor valida fechas reales desde hoy en Costa Rica, orden, rango de hasta 366 días, feriados, saldo y conflictos con solicitudes pendientes/aprobadas e incapacidades. El mensaje es opcional. El historial muestra respuesta y fecha de resolución; una pendiente propia puede cancelarse. **Mis datos** y el asistente distinguen saldo confirmado, reservas y disponibilidad.
+
+**RRHH:** entrar a **Gestionar solicitudes**, filtrar por persona, departamento, estado y fechas; abrir el detalle y aprobar o rechazar. El rechazo exige respuesta. No se permite resolver solicitudes propias ni volver a decidir una resuelta. Los permisos y licencias no descuentan vacaciones. La respuesta se publica dentro del portal; no se envían correos ni WhatsApp. Las aprobadas alimentan las consultas de ausencias existentes, sin regenerar las instantáneas de reportes guardadas.
+
+### Regla única de saldo
+
+- `dias = dias_asignados - dias_tomados + ajustes`; `dias` es el saldo confirmado, con DECIMAL convertido explícitamente a número para comparar.
+- Al migrar se conserva `dias` y se reconcilia `ajustes` con los componentes históricos. Se registra una apertura sin descuento; no se reprocesan aprobadas históricas. Los seeds nuevos mantienen la misma ecuación, registran su apertura y los cambios de saldo del fixture.
+- Reserva = suma de `dias_solicitados` en vacaciones pendientes, incluidas las pendientes históricas calculadas durante la migración. Disponibilidad = saldo confirmado menos reservas. Puede ser negativa si el historial ya estaba sobre-reservado; se muestra y se bloquean nuevas solicitudes hasta resolverlo, sin inventar saldo.
+- Crear reserva no modifica `dias`. Aprobar revalida calendario, conflictos y disponibilidad, aumenta `dias_tomados`, disminuye `dias` y termina la reserva en una sola transacción. Rechazar/cancelar libera la reserva sin cambiar el saldo confirmado. Cada descuento tiene un movimiento con saldo anterior/nuevo y solicitud única; las decisiones y cancelaciones quedan auditadas.
+- Se bloquea primero la fila de colaborador y luego el saldo/solicitud en una misma conexión transaccional MySQL. Dos creaciones o aprobaciones simultáneas se serializan; los reintentos de una decisión ya aplicada reciben conflicto y no vuelven a descontar.
+
+La cobertura de feriados se declara explícitamente por año. Solo el importador conocido del calendario completo ficticio 2026 certifica automáticamente ese año. Un conteo de feriados no prueba cobertura. RRHH puede confirmar otros años en **Control de asistencia → Cobertura del calendario**, después de cargar y verificar todos sus feriados en SQL, indicando fuente. La confirmación conserva responsable y fecha y no importa datos. Una solicitud o aprobación sin cobertura se bloquea. Los feriados de 2027 en adelante deben cargarse y verificarse; no se extrapola 2026.
+
+### Marcaciones, contador y correcciones
+
+En **Mi asistencia**, marcar entrada y luego salida. Se permiten varios intervalos no solapados por día y jornadas que atraviesan medianoche. La hora oficial proviene del servidor; los cuerpos de marcación normal solo admiten una clave UUID de idempotencia. Se guardan instantes UTC y se muestran en `America/Costa_Rica`. Las peticiones simultáneas se serializan por colaborador y la misma clave recupera el registro previo sin duplicarlo ni cerrar una jornada posterior.
+
+El contador representa **tiempo registrado entre marcas**, calculado desde la entrada persistida, con `server_now` y un reloj monotónico del navegador. Al volver a abrir la sección o recuperar visibilidad se consulta el servidor; no depende de localStorage. Después de salida muestra la duración cerrada. No descuenta almuerzo, no calcula planilla ni horas extra pagaderas. Una jornada abierta por más de 16 horas se señala para revisión, sin inventar una salida ni cerrarla por cambio de fecha.
+
+En **Control de asistencia**, RRHH filtra personas, departamentos, fechas y estado (incluidas incidencias), revisa y corrige una entrada o salida, o completa una salida olvidada. Si no existe registro, el botón **Completar marcación olvidada** permite recuperar una entrada y su salida opcional para la persona seleccionada, con auditoría de creación. Las horas del formulario son de Costa Rica. Toda corrección exige motivo, rechaza futuros, duraciones negativas y solapamientos, y guarda responsable, fecha y valores originales/nuevos en una auditoría inmutable. El colaborador ve que hubo corrección y el motivo. No se borran registros originales silenciosamente.
+
+El horario inicial es lunes a viernes 08:00–17:00, tolerancia inicial cero. RRHH crea versiones por persona con vigencia desde hoy o una fecha futura, días, horas, tolerancia y motivo. El horario admite jornadas diurnas; una jornada marcada puede cruzar medianoche. Las incidencias de entrada/salida usan el horario aplicable al día de entrada, feriados y ausencias aprobadas. La jornada conserva una instantánea del contexto: un nuevo horario no reescribe incidencias anteriores. Una corrección explícita puede recalcularlas dejando el contexto anterior en auditoría. Sin cobertura de calendario se señala incertidumbre y no se clasifica automáticamente tardía/anticipada. Las incidencias requieren revisión y no generan sanciones.
+
+Servicios y rutas están separados en `backend/server/workflows/`; componentes en `frontend/src/workflows/`. Las nuevas escrituras exigen sesión, autorización de rol y cabecera no simple `X-Portal-Request: 1`, rechazan `Sec-Fetch-Site: cross-site` y conservan cookies httpOnly SameSite Strict, sin habilitar CORS. La identidad personal siempre se toma de la sesión; las herramientas de IA no tienen acceso a escrituras ni incorporan marcaciones al RAG.
+
+### Validación de estos flujos (18-11-2026)
+
+- `npm test`: 29/29 pruebas unitarias aprobadas.
+- `npm run test:integration`: 28/28 comprobaciones aprobadas (incluidos los dos contenedores de prueba): 4 casos existentes, 21 casos nuevos y una instalación nueva completa, en bases efímeras separadas `portalrrhh_test_<pid>` y `portalrrhh_workflows_test_<pid>`, más `portalrrhh_seed_test_<pid>` para el ciclo completo de seeds, eliminadas al finalizar. Requiere permisos MySQL para crearlas y eliminarlas.
+- Los casos nuevos cubren los 19 escenarios solicitados: saldo, feriados, reservas, conflictos, resolución simultánea, liberación, respuesta visible, privacidad/CSRF, entradas/salidas, relectura persistida del contador, reintentos, medianoche, correcciones auditadas, intervalos, vigencia y tolerancia. También comprueban migración repetida, preservación del historial y revalidación de saldo modificado.
+- `npm run build`: compilación exitosa. Prueba HTTP contra el demo mediante Vite: 8/8 consultas nuevas con sesión y rol respondieron 200, sin modificar vacaciones ni asistencia de demostración.
+- No se pudo realizar inspección visual interactiva: la herramienta de navegador devolvió inventario vacío. La prueba de recarga verifica los datos persistidos y la base del contador por HTTP; la interacción visual del contador queda pendiente de revisión en navegador.
+
+Límites: no se generan ausencias por falta de marcación ni sanciones; no hay pausas ni cálculo salarial. La interfaz no importa calendarios ni ajusta saldos manualmente; los ajustes administrativos externos deben conservar la ecuación y registrar un movimiento. La gestión de horarios no contempla turnos programados nocturnos. No se enviaron datos de asistencia a proveedores de IA.

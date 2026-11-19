@@ -12,7 +12,7 @@
     "seed:users": "node backend/scripts/seed-users.js",
     "ingest": "node backend/scripts/ingest.js",
     "test": "node --test",
-    "test:integration": "node --test backend/integration/portal.integration.js",
+    "test:integration": "node --test backend/integration/*.integration.js",
     "seed:fixture": "node backend/scripts/seed-fixture.js",
     "seed:history": "node backend/scripts/seed-history.js",
     "evaluate": "node backend/scripts/evaluate.js",

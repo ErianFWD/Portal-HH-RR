@@ -7,6 +7,7 @@ import {createHash} from 'node:crypto';
 import {db,databaseAdapter} from '../server/db.js';
 import {config} from '../server/config.js';
 import {up} from '../migrations/002_portal.js';
+import {up as workflows} from '../migrations/003_workflows.js';
 import {reportMetrics,generateDailyReport,regenerateReportSummary} from '../server/agents/analyst.js';
 import {createApp} from '../server/app.js';
 import {syncDrive} from '../server/ingestion.js';
@@ -22,6 +23,7 @@ test('integración aislada: SQL, permisos, reportes e ingesta',async t=>{
     connection=new Sequelize(url.toString(),{logging:false,timezone:'+00:00'});testDb=databaseAdapter(connection);
     for(const sql of (await readFile(new URL('../migrations/001.sql',import.meta.url),'utf8')).split(';').filter(s=>s.trim()))await testDb.query(sql);
     await up(testDb);
+    await workflows(testDb);
     for(const [id,active,start,end] of [[1,1,'2020-01-01',null],[2,1,'2020-01-01',null],[3,0,'2020-01-01','2026-11-10'],[4,1,'2026-11-17',null]])await testDb.query('INSERT INTO colaboradores(id,nombre,departamento,activo,fecha_ingreso,fecha_salida) VALUES($1,$2,$3,$4,$5,$6)',[id,'Persona ficticia '+id,id===2?'Finanzas':'Operaciones',active,start,end]);
     await testDb.query("INSERT INTO movimientos_personal(colaborador_id,tipo,fecha) VALUES(3,'salida','2026-11-10'),(4,'ingreso','2026-11-17')");
     await testDb.query('INSERT INTO saldos_vacaciones(colaborador_id,dias) VALUES(1,21),(2,20)');
